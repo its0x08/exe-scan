@@ -23,7 +23,7 @@ jobs:
       - name: Get rules
         uses: actions/checkout@v3
         with:
-          repository: 'InQuest/yara-rules'
+          repository: 'Yara-Rules/rules'
           path: rules
 
       - name: Build rules
