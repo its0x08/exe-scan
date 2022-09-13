@@ -1,12 +1,11 @@
 name: exe-scan
 
-on: 
-  push:
-    paths:
-      - "input/mal.exe"
+on: push
+   # paths:
+   #   - "input/mal.exe"
 
 env:
-  TARGET: input/
+  TARGET: input/mal.exe
   OUTPUT: output/report.txt  
 
 jobs:
