@@ -32,7 +32,7 @@ jobs:
           bash index_gen.sh
 
       - name: Run Yara against the executable
-        run: yara -wmsLg -p `nproc` rules/index.yar $TARGET > $OUTPUT_FILE
+        run: yara -wmsLg -p `nproc` rules/index.yar $TARGET > $OUTPUT
 
 
       - name: Set current date
