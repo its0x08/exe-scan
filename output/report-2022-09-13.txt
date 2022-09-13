@@ -1,0 +1,10 @@
+SEH_Save [Tactic_DefensiveEvasion,Technique_AntiDebugging,SubTechnique_SEH] [author="Malware Utkonos",original_author="naxonez",source="https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"] input/mal.exe
+SEH_Init [Tactic_DefensiveEvasion,Technique_AntiDebugging,SubTechnique_SEH] [author="Malware Utkonos",original_author="naxonez",source="https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"] input/mal.exe
+anti_dbg [] [author="x0r",description="Checks if being debugged",version="0.2"] input/mal.exe
+win_files_operation [] [author="x0r",description="Affect private profile",version="0.1"] input/mal.exe
+IsPE32 [PECheck] [] input/mal.exe
+IsWindowsGUI [PECheck] [] input/mal.exe
+HasDebugData [PECheck] [author="_pusher_",description="DebugData Check",date="2016-07"] input/mal.exe
+HasRichSignature [PECheck] [author="_pusher_",description="Rich Signature Check",date="2016-07"] input/mal.exe
+VC8_Microsoft_Corporation [PEiD] [] input/mal.exe
+Microsoft_Visual_Cpp_8 [PEiD] [] input/mal.exe
