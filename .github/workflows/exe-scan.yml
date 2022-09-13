@@ -1,0 +1,51 @@
+name: exe-scan
+
+on: 
+  push:
+    paths:
+      - "input/mal.exe"
+
+env:
+  TARGET: input/mal.exe
+  OUTPUT: output/report.txt  
+
+jobs:
+  yara-scan:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install toolchain
+        run: apt update && apt install yara
+
+      - name: Get rules
+        uses: actions/checkout@v3
+        with:
+          repository: 'InQuest/yara-rules'
+          path: rules
+
+      - name: Build rules
+        run:  bash index_gen.sh
+
+      - name: Run Yara against the executable
+        run: yara -wmsLg -p `nproc` rules/index.yar $TARGET > $OUTPUT_FILE
+
+
+      - name: Set current date
+        run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Commit changes
+        run: |
+          git config --local user.email ${{ secrets.EMAIL }}
+          git config --local user.name "its0x08"
+          git add $OUTPUT_FILE
+          git commit -m "chore: Scan executable[action]"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
