@@ -8,7 +8,7 @@ on: push
 env:
   TARGET: input/mal.exe
   NOW: $(date +'%Y-%m-%d')
-  OUTPUT: output/report-${NOW}.txt
+  OUTPUT: output/report-$(echo $NOW).txt
 
 jobs:
   yara-scan:
