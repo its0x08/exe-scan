@@ -25,9 +25,9 @@ jobs:
         with:
           repository: 'InQuest/yara-rules'
           path: rules
-        run:  bash index_gen.sh
 
-      
+      - name: Build rules
+        run:  cd rules && bash index_gen.sh
 
       - name: Run Yara against the executable
         run: yara -wmsLg -p `nproc` rules/index.yar $TARGET > $OUTPUT_FILE
