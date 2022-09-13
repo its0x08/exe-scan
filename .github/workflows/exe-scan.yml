@@ -7,7 +7,8 @@ on:
 
 env:
   TARGET: input/mal.exe
-  OUTPUT: output/report.txt  
+  NOW: $(date +'%Y-%m-%d')
+  OUTPUT: output/report-$NOW.txt
 
 jobs:
   yara-scan:
@@ -28,16 +29,10 @@ jobs:
           path: rules
 
       - name: Build rules
-        run: |
-          cd rules
-          bash index_gen.sh
+        run: cd rules && bash index_gen.sh
 
       - name: Run Yara against the executable
         run: yara -wmg -p `nproc` rules/index.yar $TARGET > $OUTPUT
-
-
-      - name: Set current date
-        run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
       - name: Commit changes
         run: |
