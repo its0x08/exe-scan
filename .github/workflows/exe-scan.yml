@@ -8,7 +8,7 @@ on: push
 env:
   TARGET: input/mal.exe
   NOW: $(date +'%Y-%m-%d')
-  OUTPUT: output/report-$(date +'%Y-%m-%d').txt
+  OUTPUT: output/report
 
 jobs:
   yara-scan:
@@ -32,7 +32,7 @@ jobs:
         run: cd rules && bash index_gen.sh
 
       - name: Run Yara against the executable
-        run: yara -wmg -p `nproc` rules/index.yar $TARGET > $OUTPUT
+        run: yara -wmg -p `nproc` rules/index.yar $TARGET > $OUTPUT-$NOW.txt
 
       - name: Commit changes
         run: |
