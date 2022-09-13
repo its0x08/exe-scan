@@ -6,7 +6,7 @@ on:
       - "input/mal.exe"
 
 env:
-  TARGET: input/mal.exe
+  TARGET: input/
   OUTPUT: output/report.txt  
 
 jobs:
