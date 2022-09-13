@@ -1,8 +1,9 @@
 name: exe-scan
 
-on: push
-# paths:
-#   - "input/mal.exe"
+on: 
+  push:
+    paths:
+      - "input/mal.exe"
 
 env:
   TARGET: input/mal.exe
