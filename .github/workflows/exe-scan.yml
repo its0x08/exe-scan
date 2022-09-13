@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install toolchain
-        run: apt update && apt install yara
+        run: sudo apt update &&  sudo apt install yara -y
 
       - name: Get rules
         uses: actions/checkout@v3
