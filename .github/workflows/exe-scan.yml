@@ -1,14 +1,14 @@
 name: exe-scan
 
-on: 
-  push:
-    paths:
-      - "input/mal.exe"
+on: push
+#  push:
+#    paths:
+#      - "input/mal.exe"
 
 env:
   TARGET: input/mal.exe
   NOW: $(date +'%Y-%m-%d')
-  OUTPUT: output/report-$NOW.txt
+  OUTPUT: output/report-${{NOW}}.txt
 
 jobs:
   yara-scan:
