@@ -1,0 +1,52 @@
+disable_dep [] [author="x0r",description="Bypass DEP",version="0.1"] input/mal.exe
+0x853d:23:$c2: NtSetInformationProcess
+keylogger [] [author="x0r",description="Run a keylogger",version="0.1"] input/mal.exe
+0x72c5:10:$f1: user32.dll
+0x890d:16:$c1: GetAsyncKeyState
+Njrat2 [] [description="detect njRAT in memory",author="JPCERT/CC Incident Response Group",rule_usage="memory scan",hash1="d5f63213ce11798879520b0e9b0d1b68d55f7727758ec8c120e370699a41379d"] input/mal.exe
+0x9402:42:$reg: S\x00E\x00E\x00_\x00M\x00A\x00S\x00K\x00_\x00N\x00O\x00Z\x00O\x00N\x00E\x00C\x00H\x00E\x00C\x00K\x00S\x00
+0x91ee:26:$msg: E\x00x\x00e\x00c\x00u\x00t\x00e\x00 \x00E\x00R\x00R\x00O\x00R\x00
+0x924e:26:$msg: E\x00x\x00e\x00c\x00u\x00t\x00e\x00 \x00E\x00R\x00R\x00O\x00R\x00
+0x962a:56:$ping: c\x00m\x00d\x00.\x00e\x00x\x00e\x00 \x00/\x00c\x00 \x00p\x00i\x00n\x00g\x00 \x000\x00 \x00-\x00n\x00 \x002\x00 \x00&\x00 \x00d\x00e\x00l\x00
+Njrat [RAT] [description="Njrat",author="botherder https://github.com/botherder"] input/mal.exe
+0x7bfb:16:$string1: FromBase64String
+0x7bff:12:$string2: Base64String
+0x7d37:12:$string2: Base64String
+0x7b55:7:$string4: Receive
+0x7ba0:7:$string4: Receive
+0x8641:7:$string4: Receive
+0x7b6b:4:$string5: Send
+0x7b90:4:$string5: Send
+0x7f55:4:$string5: Send
+0x7fd4:4:$string5: Send
+0x8004:4:$string5: Send
+0x86a4:4:$string5: Send
+0x86af:4:$string5: Send
+0x8101:12:$string6: DownloadData
+0x86d1:12:$string7: DeleteSubKey
+0x8242:15:$string8: get_MachineName
+0x8252:12:$string9: get_UserName
+0x825f:17:$string10: get_LastWriteTime
+0x7d5c:20:$string11: GetVolumeInformation
+0x7e0e:20:$string11: GetVolumeInformation
+0x8294:10:$string12: OSFullName
+0x962a:56:$string16: c\x00m\x00d\x00.\x00e\x00x\x00e\x00 \x00/\x00c\x00 \x00p\x00i\x00n\x00g\x00 \x000\x00 \x00-\x00n\x00 \x002\x00 \x00&\x00 \x00d\x00e\x00l\x00
+NETexecutableMicrosoft [] [author="malware-lu"] input/mal.exe
+0xa58a:38:$a0: 00 00 00 00 00 00 00 00 5F 43 6F 72 45 78 65 4D 61 69 6E 00 6D 73 63 6F 72 65 65 2E 64 6C 6C 00 00 00 00 00 FF 25
+IsPE32 [PECheck] [] input/mal.exe
+IsNET_EXE [PECheck] [] input/mal.exe
+IsWindowsGUI [PECheck] [] input/mal.exe
+Microsoft_Visual_Studio_NET [PEiD] [] input/mal.exe
+0xa5ae:40:$a: FF 25 00 20 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Microsoft_Visual_C_v70_Basic_NET_additional [PEiD] [] input/mal.exe
+0xa5ae:54:$a: FF 25 00 20 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Microsoft_Visual_C_Basic_NET [PEiD] [] input/mal.exe
+0xa5ae:54:$b: FF 25 00 20 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Microsoft_Visual_Studio_NET_additional [PEiD] [] input/mal.exe
+0xa5ae:40:$a: FF 25 00 20 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Microsoft_Visual_C_v70_Basic_NET [PEiD] [] input/mal.exe
+0xa5ae:54:$b: FF 25 00 20 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+NET_executable_ [PEiD] [] input/mal.exe
+0xa5ae:48:$a: FF 25 00 20 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+NET_executable [PEiD] [] input/mal.exe
+0xa5ae:48:$b: FF 25 00 20 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
