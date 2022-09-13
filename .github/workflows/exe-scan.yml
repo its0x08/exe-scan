@@ -37,7 +37,7 @@ jobs:
         run: |
           git config --local user.email ${{ secrets.EMAIL }}
           git config --local user.name "its0x08"
-          git add $OUTPUT
+          git add $OUTPUT-$(date +'%Y-%m-%d').txt
           git commit -m "chore: Scan executable[action]"
 
       - name: Push changes
